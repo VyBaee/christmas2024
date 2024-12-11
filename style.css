@@ -1,0 +1,403 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(https://cdn.pixabay.com/photo/2017/10/26/19/45/red-2892235_1280.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  /* Tiêu đề chính */
+  .bgr-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.bgr-container .box-bgr{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.box-snow{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+}
+.box-snow .snow{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+.box-snow span{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+    animation: snows 5s linear infinite;
+    animation-duration: calc(100s / var(--i));
+}
+@keyframes snows{
+    0%{
+        transform: translateY(-100px) scale(0.5);
+    }
+    100%{
+        transform: translateY(100vh) scale(0.5);
+
+    }
+}
+
+.box-text-noel{
+    position: relative;
+    width: 100%;
+}
+.box-bgr .box-text-noel .text-noel{
+    position: relative;
+    width: 350px;
+    height: 100vh;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -400px);
+    animation: textnoel 3s ease-in-out forwards;
+    transition: transform 1s;
+}
+@keyframes textnoel{
+    0%{
+        transform: translate(-50%, -400px);
+    }
+    20%{
+        transform: translate(-50%, 90px);
+    }
+    25%{
+        transform: translate(-50%, 95px);
+    }
+    30%{
+        transform: translate(-50%, 100px);
+    }
+    35%{
+        transform: translate(-50%, -20px);
+    }
+    45%{
+        transform: translate(-50%, 70px);
+    }
+    55%{
+        transform: translate(-50%, -10px);
+    }
+    65%{
+        transform: translate(-50%, 50px);
+    }
+    80%,90%{
+        transform: translate(-50%, 10px);
+    }
+    100%{
+        transform: translate(-50%, 10px) rotate(10deg);
+        transform-origin: top left;
+    }
+}
+.box-bgr .box-text-noel .text-noel img{
+    width: 350px;
+}
+.box-bgr .box-text-noel span{
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 300px;
+    background: #333;
+    top: 0;
+    margin-top: -210px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    animation: textnoel1 3s ease-in-out forwards;
+}
+@keyframes textnoel1{
+    0%{
+        transform: translate(-50%, -400px);
+    }
+    20%{
+        transform: translate(-50%, 90px);
+    }
+    25%{
+        transform: translate(-50%, 95px);
+    }
+    30%{
+        transform: translate(-50%, 100px);
+    }
+    35%{
+        transform: translate(-50%, -20px);
+    }
+    45%{
+        transform: translate(-50%, 70px);
+    }
+    55%{
+        transform: translate(-50%, -10px);
+    }
+    65%{
+        transform: translate(-50%, 50px);
+    }
+    80%{
+        transform: translate(-50%, 0px);
+    }
+    100%{
+        transform: translate(-50%, 10px);
+    }
+}
+
+  
+  /* Nút bấm */
+  .btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff6f61, #ff4e50);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    box-shadow: 0 5px 15px rgba(255, 79, 79, .3);
+    animation: slideInButton 3s forwards;
+    animation-delay: 2s;
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(135deg, #e94b3c, #ff6f61);
+    box-shadow: 0 10px 20px rgba(233, 75, 60, .5);
+    transform: translateY(-502px) scale(1.05);
+  }
+
+  .btn:active {
+    transform: translateY(-500px) scale(0.98);
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .2);
+    transform: skewX(-45deg);
+    transition: left .5 ease;
+  }
+
+  .btn:hover::before {
+    left: 100%;
+  }
+  
+  /* Popup */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    backdrop-filter: blur(5px);
+  }
+  
+  .popup-content {
+    background: linear-gradient(135deg, #fff, #f8f8f8);
+    color: #333;
+    padding: 20px;
+    border-radius: 20px;
+    width: 600px;
+    margin: 10% auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: popupFadeIn 0.5s ease-out;
+  }
+
+  /* .lined-text {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #ccc 29px,
+        white 30px
+    );
+    padding: 10px;
+    position: relative;
+    overflow-y: auto;/
+  } */
+
+  .lined-text p {
+    font-size: 1.2rem;
+    line-height: 30px;
+    margin: 0;
+    padding-left: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    text-align: left;
+    animation: textFadeIn 1s forwards;
+  }
+
+  .lined-text p:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .lined-text p:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .lined-text p:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+
+  .popup-image {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+
+  .popup-content h1,
+  .popup-content p {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .popup-heading {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .signature {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: #555;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: signatureFadeIn 1s forwards;
+    animation-delay: 2s;
+  }
+
+  .signature-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e94b3c
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #555;
+    transition: color .3s ease;
+  }
+
+  .close:hover {
+    color: #333;
+  }
+
+  @keyframes textFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes popupFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes signatureFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+    
+  /* Canvas cho hiệu ứng tuyết rơi */
+  canvas#snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Ông già Noel */
+  .santa {
+    position: absolute;
+    bottom: 0;
+    right: -200px;
+    width: 300px;
+    height: 300px;
+    background: url('https://www.gifs.cc/christmas/santa-pulled-by-reindeer.gif') no-repeat center/contain;
+    z-index: 1;
+    transform: translateY(30%);
+    /* animation: moveSanta 4s forwards ease-out; */
+  }
+
+  .side-image {
+    position: fixed;
+    width: 300px;
+    height: auto;
+    top: 50%;
+    transform: translateY(-20%);
+    z-index: 0;
+    opacity: 0;
+    animation: slideInSide 1s forwards;
+  }
+
+  .left-side {
+    left: 10%;
+    animation-delay: 1s;
+  }
+
+  .right-side {
+    right: 10%;
+    animation-delay: 1s;
+  }
+
+  @keyframes slideInSide {
+    to {
+      opacity: 1;
+      /* transform: translateY(-20%); */
+    }
+  }
+
+  @keyframes slideInButton {
+    to {
+      opacity: 1;
+      transform: translateY(-500px);
+    }
+  }
